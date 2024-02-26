@@ -22,7 +22,7 @@ def check(dx, dy, b, r):
 
 
 size = w, h = 1200, 800
-fps = 100
+fps = 101
 # start
 pygame.init()
 pygame.display.set_caption("Разбей Кирпич")
