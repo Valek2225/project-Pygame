@@ -25,12 +25,14 @@ size = w, h = 1200, 800
 fps = 100
 # start
 pygame.init()
+pygame.display.set_caption("Game")
 start = pygame.image.load('Start.png')
 start = pygame.transform.scale(start, size)
 sc = pygame.display.set_mode(size)
 sc.blit(start, (0, 0))
 pygame.display.flip()
 flag = 0
+dx, dy = 1, -1
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -41,16 +43,12 @@ while True:
     if flag:
         break
 # экран и отступы
-pw = 360
-ph = 45
-ps = 15
+pw, ph, ps = 360, 45, 15
 p = pygame.Rect(w // 2 - pw // 2, h - ph - 10, pw, ph)
 # мяч
 br = 20
-bs = 6
-b_r = int(br * 2 ** 0.5)
-b = pygame.Rect(rnd(b_r, w - b_r), h // 2, b_r, b_r)
-dx, dy = 1, -1
+bs, b_r = 6, int(br * 2 ** 0.5)
+b = pygame.Rect(random.randrange(b_r, w - b_r), h // 2, b_r, b_r)
 # блоки
 bl = [pygame.Rect(10 + 120 * i, 10 + 70 * j, 100, 50) for i in range(10) for j in range(4)]
 cl = [(random.randrange(30, 256), random.randrange(30, 256), random.randrange(30, 256)) for i in range(10) for j in range(4)]
