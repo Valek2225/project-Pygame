@@ -79,7 +79,7 @@ while running:
         sc.blit(heart_image, (w - 64 - 1, h - 3 * 64 - 1))
     if heals == 3:
         sc.blit(heart_image, (w - 64 - 1, h - 4 * 64 - 1))
-    # создание карты
+    #создание карты
     [pygame.draw.rect(sc, cl[c], b) for c, b in enumerate(bl)]
     pygame.draw.rect(sc, pygame.Color('darkorange'), p)
     pygame.draw.circle(sc, pygame.Color('blue'), b.center, br)
