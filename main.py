@@ -84,7 +84,7 @@ while True:
     [pygame.draw.rect(sc, cl[c], b) for c, b in enumerate(bl)]
     pygame.draw.rect(sc, pygame.Color('darkorange'), paddle)
     pygame.draw.circle(sc, pygame.Color('blue'), ball.center, br)
-    # движение мяча
+    #движение мяча
     b.x += bs * dx
     b.y += bs * dy
     if b.centerx < br or b.centerx > w - br:
