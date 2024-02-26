@@ -44,7 +44,7 @@ pw = 360
 ph = 45
 ps = 15
 p = pygame.Rect(w // 2 - pw // 2, h - ph - 10, pw, ph)
-# мяч
+#мяч
 br = 20
 bs = 6
 b_r = int(br * 2 ** 0.5)
