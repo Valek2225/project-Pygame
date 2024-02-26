@@ -100,6 +100,17 @@ while running:
         dx, dy = check(dx, dy, b, hr)
         pygame.draw.rect(sc, hc, hr)
         fps += 2
+    if len(bl) == 0:
+        sc.fill((255, 255, 255))
+        sc.blit(game_won, (0, 0))
+        pygame.display.flip()
+        for i in range(300):
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    running = 0
+                    exit()
+            time.sleep(0.01)
+        exit()
     if b.bottom > h:
         heals -= 1
         b.x = 1100
@@ -116,17 +127,6 @@ while running:
                         exit()
                 time.sleep(0.01)
             exit()
-    elif len(bl) == 0:
-        sc.fill((255, 255, 255))
-        sc.blit(game_won, (0, 0))
-        pygame.display.flip()
-        for i in range(300):
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    running = 0
-                    exit()
-            time.sleep(0.01)
-        exit()
     # управление платформой
     key = pygame.key.get_pressed()
     if (key[pygame.K_LEFT] or key[pygame.K_a]) and p.left > 0:
