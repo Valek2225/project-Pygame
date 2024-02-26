@@ -56,7 +56,7 @@ bl = [pygame.Rect(10 + 120 * i, 10 + 70 * j, 100, 50) for i in range(10) for j i
 cl = [(random.randrange(30, 256), random.randrange(30, 256), random.randrange(30, 256)) for i in range(10) for j in range(4)]
 clock = pygame.time.Clock()
 
-# main
+#main
 # задний фон
 img = pygame.image.load('background.jpg')
 img = pygame.transform.scale(img, size)
