@@ -25,7 +25,7 @@ size = w, h = 1200, 800
 fps = 100
 # start
 pygame.init()
-pygame.display.set_caption("Game")
+pygame.display.set_caption("Разбей Кирпич")
 start = pygame.image.load('Start.png')
 start = pygame.transform.scale(start, size)
 sc = pygame.display.set_mode(size)
