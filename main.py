@@ -3,15 +3,15 @@ import time
 import random
 
 
-def check(dx, dy, ball, rect):
+def check(dx, dy, b, r):
     if dx > 0:
-        d_x = ball.right - rect.left
+        d_x = b.right - r.left
     else:
-        d_x = rect.right - ball.left
+        d_x = r.right - b.left
     if dy > 0:
-        d_y = ball.bottom - rect.top
+        d_y = b.bottom - r.top
     else:
-        d_y = rect.bottom - ball.top
+        d_y = r.bottom - b.top
     if abs(d_x - d_y) < 10:
         dx, dy = -dx, -dy
     elif d_x > d_y:
