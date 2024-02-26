@@ -1,7 +1,7 @@
-import time
-
 import pygame
-from random import randrange as rnd
+import time
+import random
+
 
 def check(dx, dy, ball, rect):
     if dx > 0:
@@ -19,6 +19,7 @@ def check(dx, dy, ball, rect):
     elif d_y > d_x:
         dx = -dx
     return dx, dy
+
 
 size = w, h = 1200, 800
 fps = 100
@@ -44,7 +45,7 @@ pw = 360
 ph = 45
 ps = 15
 p = pygame.Rect(w // 2 - pw // 2, h - ph - 10, pw, ph)
-#мяч
+# мяч
 br = 20
 bs = 6
 b_r = int(br * 2 ** 0.5)
@@ -52,7 +53,7 @@ b = pygame.Rect(rnd(b_r, w - b_r), h // 2, b_r, b_r)
 dx, dy = 1, -1
 # блоки
 bl = [pygame.Rect(10 + 120 * i, 10 + 70 * j, 100, 50) for i in range(10) for j in range(4)]
-cl = [(rnd(30, 256), rnd(30, 256), rnd(30, 256)) for i in range(10) for j in range(4)]
+cl = [(random.randrange(30, 256), random.randrange(30, 256), random.randrange(30, 256)) for i in range(10) for j in range(4)]
 clock = pygame.time.Clock()
 
 # main
@@ -67,11 +68,11 @@ game_lose = pygame.image.load("Lose.png")
 game_lose = pygame.transform.scale(game_lose, size)
 
 heals = 3
-
-
-while True:
+running = 1
+while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
+            running = 0
             exit()
     sc.blit(img, (0, 0))
     if (heals >= 1):
@@ -84,7 +85,7 @@ while True:
     [pygame.draw.rect(sc, cl[c], b) for c, b in enumerate(bl)]
     pygame.draw.rect(sc, pygame.Color('darkorange'), p)
     pygame.draw.circle(sc, pygame.Color('blue'), b.center, br)
-    #движение мяча
+    # движение мяча
     b.x += bs * dx
     b.y += bs * dy
     if b.centerx < br or b.centerx > w - br:
@@ -113,6 +114,7 @@ while True:
             for i in range(300):
                 for event in pygame.event.get():
                     if event.type == pygame.QUIT:
+                        running = 0
                         exit()
                 time.sleep(0.01)
             exit()
@@ -123,6 +125,7 @@ while True:
         for i in range(300):
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
+                    running = 0
                     exit()
             time.sleep(0.01)
         exit()
