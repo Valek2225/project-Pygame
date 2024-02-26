@@ -40,8 +40,8 @@ while True:
     if flag:
         break
 # экран и отступы
-pw = 330
-ph = 35
+pw = 360
+ph = 45
 ps = 15
 p = pygame.Rect(w // 2 - pw // 2, h - ph - 10, pw, ph)
 # мяч
@@ -82,8 +82,8 @@ while True:
         sc.blit(heart_image, (w - 64 - 1, h - 4 * 64 - 1))
     # создание карты
     [pygame.draw.rect(sc, cl[c], b) for c, b in enumerate(bl)]
-    pygame.draw.rect(sc, pygame.Color('darkorange'), paddle)
-    pygame.draw.circle(sc, pygame.Color('blue'), ball.center, br)
+    pygame.draw.rect(sc, pygame.Color('darkorange'), p)
+    pygame.draw.circle(sc, pygame.Color('blue'), b.center, br)
     #движение мяча
     b.x += bs * dx
     b.y += bs * dy
@@ -116,7 +116,7 @@ while True:
                         exit()
                 time.sleep(0.01)
             exit()
-    elif not len(bl):
+    elif len(bl) == 0:
         sc.fill((255, 255, 255))
         sc.blit(game_won, (0, 0))
         pygame.display.flip()
